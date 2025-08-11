@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+  <title>לומדים שמות עצם</title>
+  <link rel="stylesheet" href="style2.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="app2.js"></script>
+</head>
+<body ng-controller="MainCtrl">
+
+  <h1>📘 לומדים שמות עצם</h1>
+  <h2>כתבו משפט עם שמות עצם בעברית או באנגלית!</h2>
+
+  <input type="text" ng-model="myText" placeholder="למשל: ראיתי chair, שולחן וdoor בבית">
+  <button class="clear-button" ng-click="myText = ''">נקה שדה</button>
+
+ <div class="result-box">
+    {{ myText  | tableify | chairify | bedify | doorify | windowify | phoneify | computerify | televisionify | lampify | bookify | notebookify | penify | pencilify | bagify | bottleify | cupify | plateify | forkify | knifeify | spoonify | clockify | pictureify | mirrorify | carpetify | sofaify | armchairify | closetify | fridgeify | ovenify | stoveify | microwaveify | washingmachineify | dryerify | sinkify | toiletify }}
+  </div>
+
+  <button ng-click="showHint = !showHint" class="hint-toggle">💡 הצג/הסתר רמזים</button>
+
+  <div class="hint-box" ng-show="showHint">
+    <strong>💡 רמז:</strong> אפשר לכתוב:
+    <span class="clickable-hint" ng-click="myText = myText + ' שולחן '">Table / שולחן</span> ,
+    <span class="clickable-hint" ng-click="myText = myText + ' כיסא '">Chair / כיסא</span> ,
+    <span class="clickable-hint" ng-click="myText = myText + ' מיטה '">Bed / מיטה</span> ,
+    <span class="clickable-hint" ng-click="myText = myText + ' דלת '">Door / דלת</span> ,
+    <span class="clickable-hint" ng-click="myText = myText + ' חלון '">Window / חלון</span> ,
+    <span class="clickable-hint" ng-click="myText = myText + ' טלפון '">Phone / טלפון</span> ,
+    <span class="clickable-hint" ng-click="myText = myText + ' מחשב '">Computer / מחשב</span> ,
+    <span class="clickable-hint" ng-click="myText = myText + ' טלוויזיה '">Television / טלוויזיה</span> ,
+    <span class="clickable-hint" ng-click="myText = myText + ' מנורה '">Lamp / מנורה</span> ,
+    <span class="clickable-hint" ng-click="myText = myText + ' ספר '">Book / ספר</span> ,
+    <span class="clickable-hint" ng-click="myText = myText + ' מחברת '">Notebook / מחברת</span> ,
+    <span class="clickable-hint" ng-click="myText = myText + ' עט '">Pen / עט</span> ,
+    <span class="clickable-hint" ng-click="myText = myText + ' עיפרון '">Pencil / עיפרון</span> ,
+    <span class="clickable-hint" ng-click="myText = myText + ' תיק '">Bag / תיק</span> ,
+    <span class="clickable-hint" ng-click="myText = myText + ' בקבוק '">Bottle / בקבוק</span> ,
+    <span class="clickable-hint" ng-click="myText = myText + ' ספל '">Cup / ספל</span> ,
+    <span class="clickable-hint" ng-click="myText = myText + ' צלחת '">Plate / צלחת</span> ,
+    <span class="clickable-hint" ng-click="myText = myText + ' מזלג '">Fork / מזלג</span> ,
+    <span class="clickable-hint" ng-click="myText = myText + ' סכין '">Knife / סכין</span> ,
+    <span class="clickable-hint" ng-click="myText = myText + ' כפית '">Spoon / כפית</span> ,
+    <span class="clickable-hint" ng-click="myText = myText + ' שעון '">Clock / שעון</span> ,
+    <span class="clickable-hint" ng-click="myText = myText + ' תמונה '">Picture / תמונה</span> ,
+    <span class="clickable-hint" ng-click="myText = myText + ' מראה '">Mirror / מראה</span> ,
+    <span class="clickable-hint" ng-click="myText = myText + ' שטיח '">Carpet / שטיח</span> ,
+    <span class="clickable-hint" ng-click="myText = myText + ' ספה '">Sofa / ספה</span> ,
+    <span class="clickable-hint" ng-click="myText = myText + ' כורסה '">Armchair / כורסה</span> ,
+    <span class="clickable-hint" ng-click="myText = myText + ' ארון '">Closet / ארון</span> ,
+    <span class="clickable-hint" ng-click="myText = myText + ' מקרר '">Fridge / מקרר</span> ,
+    <span class="clickable-hint" ng-click="myText = myText + ' תנור '">Oven / תנור</span> ,
+    <span class="clickable-hint" ng-click="myText = myText + ' כיריים '">Stove / כיריים</span> ,
+    <span class="clickable-hint" ng-click="myText = myText + ' מיקרוגל '">Microwave / מיקרוגל</span> ,
+    <span class="clickable-hint" ng-click="myText = myText + ' מכונת כביסה '">Washing Machine / מכונת כביסה</span> ,
+    <span class="clickable-hint" ng-click="myText = myText + ' מייבש '">Dryer / מייבש</span> ,
+    <span class="clickable-hint" ng-click="myText = myText + ' כיור '">Sink / כיור</span> ,
+    <span class="clickable-hint" ng-click="myText = myText + ' אסלה '">Toilet / אסלה</span>
+  </div>
+
+  <div class="note">
+    נסו לכתוב שטיח / Carpet , מזלג / Fork ולשלב את זה במשפט, בהצלחה ! 🎉
+  </div>
+
+  <br><br>
+  <a class="nav-link" href="learn_nouns.html">📖 ללמידה על שמות העצם</a>
+  <a class="nav-link" href="exam_nouns.html">🚀 עבור למבחן</a>
+  <hr>
+  <a class="nav-link" href="home.html">🏠 חזרה לדף הבית</a>
+
+</body>
+</html>

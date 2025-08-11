@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+  <title>מבחן שמות עצם</title>
+  <link rel="stylesheet" href="style2.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="app2.js"></script>
+  <style>
+    body {
+      text-align: center;
+      padding: 30px;
+      font-family: Arial;
+    }
+    .emoji {
+      font-size: 80px;
+      margin: 20px 0;
+    }
+    input {
+      padding: 10px;
+      font-size: 16px;
+      width: 300px;
+      text-align: center;
+    }
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+    .result {
+      font-weight: bold;
+      font-size: 20px;
+      margin-top: 20px;
+    }
+    .progress-container {
+      width: 80%;
+      height: 25px;
+      margin: 20px auto;
+      background-color: #eee;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .progress-bar {
+      height: 100%;
+      text-align: center;
+      line-height: 25px;
+      color: white;
+      font-weight: bold;
+      transition: width 0.4s ease;
+    }
+  </style>
+</head>
+<body ng-controller="ExamCtrl">
+
+  <h1>מבחן שמות עצם</h1>
+
+  <div class="emoji">{{ currentEmoji }}</div>
+
+  <input type="text" ng-model="userAnswer" placeholder="כתוב את שם העצם בעברית או באנגלית">
+  <br>
+  <button ng-click="checkAnswer()">בדוק</button>
+
+  <div class="result" ng-show="feedback">
+    {{ feedback }}
+  </div>
+
+  <div class="progress-container">
+    <div class="progress-bar" ng-style="progressStyle()">{{ progressPercent() }}%</div>
+  </div>
+
+  <button ng-click="nextObject()">המשך לעצם הבא</button>
+
+  <hr>
+  <a  class="nav-link" href="index2.html">🏠 חזרה לדף הבית</a>
+  <a  class="nav-link" href="learn_nouns.html">📘 עבור ללמידה</a>
+
+</body>
+</html>

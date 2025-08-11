@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+  <title>מבחן חיות</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="app.js"></script>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      text-align: center;
+      padding: 30px;
+      font-family: Arial;
+    }
+    .emoji {
+      font-size: 80px;
+      margin: 20px 0;
+    }
+    input {
+      padding: 10px;
+      font-size: 16px;
+      width: 300px;
+      text-align: center;
+    }
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+    .result {
+      font-weight: bold;
+      font-size: 20px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body ng-controller="ExamCtrl">
+
+  <h1>מבחן חיות</h1>
+
+  <div class="emoji">{{ currentEmoji }}</div>
+
+  <input type="text" ng-model="userAnswer" placeholder="כתוב את שם החיה בעברית או באנגלית">
+  <br>
+  <button ng-click="checkAnswer()">בדוק</button>
+
+  <div class="result" ng-show="feedback">
+    {{ feedback }}
+  </div>
+   <div class="progress-container">
+    <div class="progress-bar" ng-style="progressStyle()">{{ progressPercent() }}%</div>
+  </div>
+
+  <br><br>
+  <button ng-click="nextAnimal()">המשך לחיה הבאה</button>
+
+  <hr>
+  <div style="text-align:center; margin-top:20px;">
+    <a class="nav-link" href="index.html" style="margin-right:10px;">🏠 חזור לעמוד הראשי</a>
+    <a class="nav-link" href="learn.html">📚 עבור ללמידה</a>
+  </div>
+
+</body>
+</html>
