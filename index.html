@@ -1,74 +1,53 @@
 <!DOCTYPE html>
-<html lang="he" dir="rtl" ng-app="myApp">
+<html lang="he" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>לומדים שמות של חיות</title>
+  <title>🌟 דף הבית - לומדים עם חיוך</title>
   <link rel="stylesheet" href="styles.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-  <script src="app.js"></script>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial;
+      padding: 50px;
+      background-color: #f0f8ff;
+    }
+    h1 {
+      font-size: 36px;
+      margin-bottom: 30px;
+    }
+    .nav-box {
+      display: inline-block;
+      background-color: #fff;
+      padding: 20px 40px;
+      margin: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      text-decoration: none;
+      color: #333;
+      font-size: 20px;
+      transition: 0.3s;
+    }
+    .nav-box:hover {
+      background-color: #e0f7fa;
+      transform: scale(1.05);
+    }
+    .footer {
+      margin-top: 80px;
+      font-size: 14px;
+      color: #777;
+    }
+  </style>
 </head>
-<body ng-controller="MainCtrl">
+<body>
 
-  <h1>📘 לומדים חיות עם חיוכים 🐾</h1>
-  <h2>כתבו משפט עם שמות של חיות בעברית או באנגלית!</h2>
+  <h1>📚 ברוכים הבאים ללמידה של ויקו</h1>
 
-  <input type="text" ng-model="myText" placeholder="למשל: ראיתי cat, כלב וlion בגן החיות">
-  <button class="clear-button" ng-click="myText = ''">נקה שדה</button>
+  <a href="animals.html" class="nav-box">🐾 לימוד על חיות</a>
+  <a href="nouns.html" class="nav-box">📦 לימוד על שמות עצם</a>
 
-<div class="result-box" ng-bind="myText 
-  | catify | dogify | fishify | bunnyify | lionify | snakeify | cowify | pigify | frogify 
-  | monkeyify | foxify | horseify | penguinify | turtleify | zebraify | sheepify 
-  | elephantify | crocodileify | batify | owlify | duckify | swanify | parrotify 
-  | octopusify | crabify | squidify | whaleify | hedgehogify | slothify 
-  | kangarooify | bisonify | camelify">
-</div>
-
-
-  <button ng-click="showHint = !showHint" class="hint-toggle">💡 הצג/הסתר רמזים</button>
-  <div class="hint-box" ng-show="showHint">
-    <strong>💡 רמז:</strong> אפשר לכתוב:
-    <span class="clickable-hint" ng-click="myText = myText + ' חתול '">Cat / חתול</span> ,
-    <span class="clickable-hint" ng-click="myText = myText + ' כלב '">Dog / כלב</span> ,
-    <span class="clickable-hint" ng-click="myText = myText + ' דג '">Fish / דג</span> ,
-    <span class="clickable-hint" ng-click="myText = myText + ' ארנב '">Bunny / ארנב</span> ,
-    <span class="clickable-hint" ng-click="myText = myText + ' אריה '">Lion / אריה</span> ,
-    <span class="clickable-hint" ng-click="myText = myText + ' נחש '">Snake / נחש</span> ,
-    <span class="clickable-hint" ng-click="myText = myText + ' פרה '">Cow / פרה</span> ,
-    <span class="clickable-hint" ng-click="myText = myText + ' חזיר '">Pig / חזיר</span> ,
-    <span class="clickable-hint" ng-click="myText = myText + ' צפרדע '">Frog / צפרדע</span> ,
-    <span class="clickable-hint" ng-click="myText = myText + ' קוף '">Monkey / קוף</span> ,
-    <span class="clickable-hint" ng-click="myText = myText + ' שועל '">Fox / שועל</span> ,
-    <span class="clickable-hint" ng-click="myText = myText + ' סוס '">Horse / סוס</span> ,
-    <span class="clickable-hint" ng-click="myText = myText + ' פינגווין '">Penguin / פינגווין</span> ,
-    <span class="clickable-hint" ng-click="myText = myText + ' צב '">Turtle / צב</span> ,
-    <span class="clickable-hint" ng-click="myText = myText + ' זברה '">Zebra / זברה</span> ,
-    <span class="clickable-hint" ng-click="myText = myText + ' כבשה '">Sheep / כבשה</span> ,
-    <span class="clickable-hint" ng-click="myText = myText + ' פיל '">Elephant / פיל</span> ,
-    <span class="clickable-hint" ng-click="myText = myText + ' תנין '">Crocodile / תנין</span> ,
-    <span class="clickable-hint" ng-click="myText = myText + ' עטלף '">Bat / עטלף</span> ,
-    <span class="clickable-hint" ng-click="myText = myText + ' ינשוף '">Owl / ינשוף</span> ,
-    <span class="clickable-hint" ng-click="myText = myText + ' ברווז '">Duck / ברווז</span> ,
-    <span class="clickable-hint" ng-click="myText = myText + ' ברבור '">Swan / ברבור</span> ,
-    <span class="clickable-hint" ng-click="myText = myText + ' תוכי '">Parrot / תוכי</span> ,
-    <span class="clickable-hint" ng-click="myText = myText + ' תמנון '">Octopus / תמנון</span> ,
-    <span class="clickable-hint" ng-click="myText = myText + ' סרטן '">Crab / סרטן</span> ,
-    <span class="clickable-hint" ng-click="myText = myText + ' דיונון '">Squid / דיונון</span> ,
-    <span class="clickable-hint" ng-click="myText = myText + ' לוויתן '">Whale / לוויתן</span> ,
-    <span class="clickable-hint" ng-click="myText = myText + ' קיפוד '">Hedgehog / קיפוד</span> ,
-    <span class="clickable-hint" ng-click="myText = myText + ' עצלן '">Sloth / עצלן</span> ,
-    <span class="clickable-hint" ng-click="myText = myText + ' קנגורו '">Kangaroo / קנגורו</span> ,
-    <span class="clickable-hint" ng-click="myText = myText + ' ביזון '">Bison / ביזון</span> ,
-    <span class="clickable-hint" ng-click="myText = myText + ' גמל '">Camel / גמל</span>
+  <div class="footer">
+    © 2025 | ויקו אזולאי | מרצה: יואל אברהם | טלפון: 054-6904343
   </div>
 
-  <div class="note">
-    נסו לכתוב: חתול / cat, כלב / dog, דג / fish ולשלב את זה במשפט, בהצלחה ! 🎉
-  </div>
-
-  <br>
-  <a class="nav-link" href="learn.html">📖 ללמידה על החיות</a>
-  <a class="nav-link" href="exam.html">🚀 עבור למבחן</a>
-  <hr>
-  <a class="nav-link" href="home.html">🏠 חזרה לדף הבית</a>
 </body>
 </html>
